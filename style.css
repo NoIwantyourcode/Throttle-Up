@@ -52,10 +52,11 @@ a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px 64px 0;
+    padding: 20px 64px 16px;
     background: var(--nav);
     backdrop-filter: blur(10px);
     z-index: 10;
+    gap: 16px;
 }
 
 .cursor-plane {
@@ -86,11 +87,11 @@ a {
     opacity: 0.7;
 }
 
-
 .brand {
     display: flex;
     align-items: center;
     gap: 24px;
+    flex-shrink: 0;
 }
 
 .brand-title {
@@ -99,20 +100,22 @@ a {
     font-weight: 700;
     letter-spacing: -0.02em;
     text-align: center;
-    transform: translateY(-13px)
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
 
 .brand-icon {
     display: inline-block;
     margin-right: 12px;
     font-size: 1.1em;
-    transform: translateY(11px);
 }
 
 .site-nav {
     display: flex;
     gap: 16px;
-    transform: translateY(-7px)
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .site-nav a {
@@ -123,11 +126,12 @@ a {
     border-radius: 14px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: background 150ms ease, transform 150ms ease;
+    white-space: nowrap;
 }
 
 .site-nav a:hover {
     color: rgba(255, 255, 255, 1);
-    transform: translateY(-13px);
+    transform: translateY(-4px);
 }
 
 .page {
@@ -143,11 +147,11 @@ a {
     padding: 80px 64px 160px;
     position: relative;
     gap: 120px;
-    transform: translateY(-80px)
 }
 
 .hero-headline {
     width: 540px;
+    flex-shrink: 0;
 }
 
 .hero-headline h2 {
@@ -177,11 +181,13 @@ a {
     flex-direction: row;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .hero-cta__label {
     font-size: 40px;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .hero-cta__button {
@@ -193,11 +199,11 @@ a {
     font-size: 40px;
     border-radius: 16px;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
-    flex-direction: column;
-    transform: translateX(50px);
+    white-space: nowrap;
 }
 
 .hero-cta__button2 {
+    display: inline-block;
     padding: 18px 44px;
     background: rgba(255, 255, 255, 0.95);
     color: var(--black);
@@ -205,7 +211,7 @@ a {
     font-size: 40px;
     border-radius: 16px;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
-    flex-direction: column;
+    white-space: nowrap;
 }
 
 .section-title {
@@ -217,7 +223,6 @@ a {
 
 .plan {
     padding: 0 64px 140px;
-    transform: translateY(-100px)
 }
 
 .steps {
@@ -239,12 +244,19 @@ a {
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    flex: 1 1 45%;
+    min-width: 0;
 }
 
 .step-media img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.step-content {
+    flex: 1 1 45%;
+    min-width: 0;
 }
 
 .step-content h3 {
@@ -259,6 +271,17 @@ a {
     margin: 0;
     max-width: 520px;
     text-align: left;
+}
+
+.incentive {
+    padding: 0 64px 140px;
+    text-align: center;
+}
+
+.incentive p {
+    font-size: 77px;
+    margin: 0;
+    font-weight: 700;
 }
 
 .faq {
@@ -289,114 +312,323 @@ a {
     line-height: 1.5;
 }
 
-.incentive {
-    padding: 0 64px 140px;
-    text-align: center;
-}
-
-.incentive p {
-    font-size: 77px;
-    margin: 0;
-    font-weight: 700;
-}
-
 @media (max-width: 1120px) {
+    .site-header {
+        padding: 20px 40px 16px;
+    }
+
+    .brand-title {
+        font-size: 44px;
+    }
+
+    .site-nav a {
+        font-size: 20px;
+    }
+
+    .page {
+        padding-top: 160px;
+    }
+
     .hero {
         flex-direction: column;
-        padding: 80px 40px 140px;
-        gap: 60px;
+        padding: 60px 40px 120px;
+        gap: 48px;
+    }
+
+    .hero-headline {
+        width: 100%;
+    }
+
+    .hero-headline h2 {
+        font-size: 64px;
+    }
+
+    .hero-headline p {
+        font-size: 22px;
+        max-width: 100%;
     }
 
     .hero-cta {
-        margin-top: 40px;
+        width: 100%;
+        gap: 28px;
     }
 
-    .site-header {
-        padding: 32px 40px 0;
+    .hero-cta__label {
+        font-size: 32px;
     }
 
-    .site-nav {
-        gap: 20px;
+    .hero-cta__button,
+    .hero-cta__button2 {
+        font-size: 32px;
+        padding: 16px 36px;
+    }
+
+    .section-title {
+        font-size: 56px;
     }
 
     .plan {
         padding: 0 40px 100px;
     }
 
+    .step-content h3 {
+        font-size: 40px;
+    }
+
+    .step-content p {
+        font-size: 22px;
+    }
+
+    .incentive {
+        padding: 0 40px 100px;
+    }
+
+    .incentive p {
+        font-size: 56px;
+    }
+
     .faq {
-        padding: 0 40px 120px;
+        padding: 0 40px 100px;
+    }
+
+    .faq-card h3 {
+        font-size: 34px;
+    }
+
+    .faq-card p {
+        font-size: 20px;
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px 24px 0;
-        gap: 18px;
+        padding: 14px 20px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .brand-title {
         font-size: 32px;
     }
 
+    .brand-icon {
+        width: 60px !important;
+        margin-right: 8px;
+    }
+
+    .site-nav {
+        gap: 8px;
+    }
+
     .site-nav a {
-        font-size: 18px;
-        padding: 8px 6px;
+        font-size: 16px;
+        padding: 8px 10px;
+        border-radius: 10px;
     }
 
     .page {
-        padding: 140px 0 80px;
+        padding-top: 130px;
     }
 
     .hero {
-        padding: 40px 24px 80px;
-        gap: 30px;
+        padding: 40px 20px 80px;
+        gap: 32px;
     }
 
     .hero-headline h2 {
-        font-size: 56px;
+        font-size: 48px;
     }
 
     .hero-headline p {
         font-size: 18px;
-        max-width: 100%;
     }
 
-    .hero-cta {
-        transform: none;
-        margin-top: 24px;
+    .hero-cta__item {
+        gap: 12px;
     }
 
     .hero-cta__label {
-        font-size: 36px;
+        font-size: 24px;
     }
 
-    .hero-cta__button {
-        font-size: 22px;
-        padding: 16px 32px;
+    .hero-cta__button,
+    .hero-cta__button2 {
+        font-size: 24px;
+        padding: 14px 28px;
+        border-radius: 12px;
     }
 
-    .step {
+    .section-title {
+        font-size: 44px;
+        margin-bottom: 40px;
+    }
+
+    .plan {
+        padding: 0 20px 80px;
+    }
+
+    .steps {
+        gap: 60px;
+    }
+
+    .step,
+    .step:nth-child(even) {
         flex-direction: column;
-        gap: 18px;
-        text-align: center;
+        gap: 24px;
+    }
+
+    .step-media {
+        flex: none;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .step-content {
+        flex: none;
+        width: 100%;
     }
 
     .step-content h3 {
-        font-size: 38px;
+        font-size: 36px;
+        text-align: center;
     }
 
     .step-content p {
-        font-size: 20px;
+        font-size: 18px;
         max-width: 100%;
+        text-align: center;
+    }
+
+    .incentive {
+        padding: 0 20px 80px;
+    }
+
+    .incentive p {
+        font-size: 36px;
+    }
+
+    .faq {
+        padding: 0 20px 80px;
     }
 
     .faq-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .faq-card {
+        padding: 28px 24px;
+        border-radius: 20px;
+    }
+
+    .faq-card h3 {
+        font-size: 26px;
+    }
+
+    .faq-card p {
+        font-size: 17px;
     }
 }
 
-body {
-    scroll-behavior: smooth;
+@media (max-width: 480px) {
+    .site-header {
+        padding: 12px 16px 12px;
+    }
+
+    .brand-title {
+        font-size: 26px;
+    }
+
+    .brand-icon {
+        width: 48px !important;
+    }
+
+    .site-nav a {
+        font-size: 13px;
+        padding: 7px 8px;
+    }
+
+    .page {
+        padding-top: 120px;
+    }
+
+    .hero {
+        padding: 28px 16px 60px;
+    }
+
+    .hero-headline h2 {
+        font-size: 38px;
+    }
+
+    .hero-headline p {
+        font-size: 16px;
+    }
+
+    .hero-cta {
+        gap: 20px;
+    }
+
+    .hero-cta__item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .hero-cta__label {
+        font-size: 20px;
+    }
+
+    .hero-cta__button,
+    .hero-cta__button2 {
+        font-size: 20px;
+        padding: 12px 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 28px;
+    }
+
+    .plan {
+        padding: 0 16px 60px;
+    }
+
+    .steps {
+        gap: 44px;
+    }
+
+    .step-content h3 {
+        font-size: 28px;
+    }
+
+    .step-content p {
+        font-size: 16px;
+    }
+
+    .incentive {
+        padding: 0 16px 60px;
+    }
+
+    .incentive p {
+        font-size: 28px;
+    }
+
+    .faq {
+        padding: 0 16px 60px;
+    }
+
+    .faq-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .faq-card h3 {
+        font-size: 22px;
+    }
+
+    .faq-card p {
+        font-size: 15px;
+    }
 }
