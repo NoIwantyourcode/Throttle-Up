@@ -31,3 +31,33 @@ window.addEventListener('mouseout', () => {
 window.addEventListener('mouseover', () => {
   plane.style.opacity = '1';
 });
+
+// Remove white background from step images
+function removeWhiteBackground(img) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  ctx.drawImage(img, 0, 0);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    // If pixel is light (near white), make transparent
+    if (r > 200 && g > 200 && b > 200) {
+      data[i + 3] = 0; // alpha to 0
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  img.src = canvas.toDataURL();
+}
+
+document.querySelectorAll('.step-media img').forEach(img => {
+  if (img.complete) {
+    removeWhiteBackground(img);
+  } else {
+    img.addEventListener('load', () => removeWhiteBackground(img));
+  }
+});
