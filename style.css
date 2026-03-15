@@ -52,7 +52,7 @@ a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 40px 64px 0;
+    padding: 20px 64px 0;
     background: var(--nav);
     backdrop-filter: blur(10px);
     z-index: 10;
@@ -95,22 +95,24 @@ a {
 
 .brand-title {
     margin: 0;
-    font-size: 48px;
+    font-size: 60px;
     font-weight: 700;
     letter-spacing: -0.02em;
     text-align: center;
+    transform: translateY(-13px)
 }
 
 .brand-icon {
     display: inline-block;
     margin-right: 12px;
     font-size: 1.1em;
-    transform: translateY(12px);
+    transform: translateY(11px);
 }
 
 .site-nav {
     display: flex;
-    gap: 32px;
+    gap: 16px;
+    transform: translateY(-7px)
 }
 
 .site-nav a {
@@ -125,7 +127,7 @@ a {
 
 .site-nav a:hover {
     color: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
+    transform: translateY(-13px);
 }
 
 .page {
@@ -141,6 +143,7 @@ a {
     padding: 80px 64px 160px;
     position: relative;
     gap: 120px;
+    transform: translateY(-80px)
 }
 
 .hero-headline {
@@ -201,6 +204,7 @@ a {
 
 .plan {
     padding: 0 64px 140px;
+    transform: translateY(-100px)
 }
 
 .steps {
