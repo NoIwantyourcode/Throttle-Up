@@ -396,3 +396,7 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
+body {
+    scroll-behavior: smooth;
+}
