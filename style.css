@@ -1,8 +1,11 @@
 :root {
     --white: #FFFFFF;
     --black: #000000;
-    --dark-blue: #0071B2;
-    --light-blue: #AAE3FB;
+    --nav: linear-gradient(120deg, rgba(11, 48, 86, 0.85), rgba(26, 140, 216, 0.75), rgba(126, 216, 255, 0.65));
+    --sky-top: #0b3056;
+    --sky-mid: #1a8cd8;
+    --sky-bottom: #7ed8ff;
+    --cloud: rgba(255, 255, 255, 0.28);
 }
 
 * {
@@ -16,7 +19,23 @@ body {
     padding: 0;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--white);
-    background: var(--dark-blue);
+    background: linear-gradient(120deg, var(--sky-top), var(--sky-mid), var(--sky-bottom));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 18% 18%, var(--cloud) 0%, transparent 55%),
+        radial-gradient(circle at 85% 30%, var(--cloud) 0%, transparent 60%),
+        radial-gradient(circle at 55% 78%, var(--cloud) 0%, transparent 55%);
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: -1;
 }
 
 a {
@@ -32,13 +51,41 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
+    width: 100%;
     padding: 40px 64px 0;
-    background: rgba(0, 113, 178, 0.9);
+    background: var(--nav);
     backdrop-filter: blur(10px);
     z-index: 10;
 }
+
+.cursor-plane {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 180ms ease, transform 90ms ease;
+    transform: translate3d(0, 0, 0);
+    background: radial-gradient(circle at 30% 30%, rgba(26, 140, 216, 0.9) 0%, rgba(126, 216, 255, 0.7) 65%),
+      linear-gradient(135deg, rgba(11, 48, 86, 0.95) 0%, rgba(26, 140, 216, 0.85) 45%, rgba(126, 216, 255, 0.35) 100%);
+    clip-path: polygon(50% 0%, 100% 85%, 50% 70%, 0% 85%);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.26);
+    z-index: 999;
+}
+
+.cursor-plane::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2px;
+    height: 24px;
+    background: rgba(26, 140, 216, 0.8);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
 
 .brand {
     display: flex;
@@ -54,6 +101,13 @@ a {
     text-align: center;
 }
 
+.brand-icon {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 1.1em;
+    transform: translateY(2px);
+}
+
 .site-nav {
     display: flex;
     gap: 32px;
@@ -62,14 +116,18 @@ a {
 .site-nav a {
     font-size: 24px;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
-    padding: 10px 8px;
-    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(0, 113, 178, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 150ms ease, transform 150ms ease;
 }
 
 .site-nav a:hover {
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 1);
+    background: rgba(0, 113, 178, 0.55);
+    transform: translateY(-2px);
 }
 
 .page {
@@ -85,6 +143,29 @@ a {
     padding: 80px 64px 160px;
     position: relative;
     gap: 120px;
+}
+
+.hero::after {
+    content: "✈️";
+    position: absolute;
+    top: 24px;
+    right: -80px;
+    font-size: 60px;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: fly 16s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-120vw) translateY(24px) rotate(20deg);
+    }
+    100% {
+        transform: translateX(-240vw) translateY(0) rotate(0deg);
+    }
 }
 
 .hero-headline {
