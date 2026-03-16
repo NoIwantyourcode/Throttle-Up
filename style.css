@@ -29,10 +29,6 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image:
-        radial-gradient(circle at 18% 18%, var(--cloud) 0%, transparent 55%),
-        radial-gradient(circle at 85% 30%, var(--cloud) 0%, transparent 60%),
-        radial-gradient(circle at 55% 78%, var(--cloud) 0%, transparent 55%);
     opacity: 0.85;
     pointer-events: none;
     z-index: -1;
@@ -54,7 +50,7 @@ a {
     width: 100%;
     padding: 20px 64px 16px;
     background: var(--nav);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     z-index: 10;
     gap: 16px;
 }
