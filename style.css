@@ -444,7 +444,9 @@ a {
     }
 
     .hero-cta__item {
-        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     .hero-cta__label {
@@ -456,6 +458,8 @@ a {
         font-size: 24px;
         padding: 14px 28px;
         border-radius: 12px;
+        width: 100%;
+        text-align: center;
     }
 
     .section-title {
@@ -568,12 +572,6 @@ a {
         gap: 20px;
     }
 
-    .hero-cta__item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
     .hero-cta__label {
         font-size: 20px;
     }
@@ -582,8 +580,6 @@ a {
     .hero-cta__button2 {
         font-size: 20px;
         padding: 12px 24px;
-        width: 100%;
-        text-align: center;
     }
 
     .section-title {
