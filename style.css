@@ -25,6 +25,18 @@ body {
     background-size: cover;
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 body::before {
     content: "";
     position: fixed;
