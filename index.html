@@ -29,7 +29,6 @@
 
     <main class="page" id="signup">
         <section class="hero">
-            <!-- LEFT: headline + CTA panel -->
             <div class="hero-content">
                 <div class="hero-headline">
                     <h2>Welcome to ThrottleUp</h2>
@@ -57,8 +56,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- RIGHT: plane image -->
             <div class="hero-plane-content">
                 <div class="hero-plane-wrapper">
                     <img src="images/complete-brg removed.png" alt="RC Aircraft" class="hero-plane">
@@ -180,7 +177,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         function goToForm() {
             const email = document.getElementById('rsvp-email').value.trim();
@@ -191,6 +187,37 @@
         document.getElementById('rsvp-email').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') goToForm();
         });
+    </script>
+    <div class="bg-planes" id="bg-planes"></div>
+    <script>
+        const planesSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="black">
+            <path d="M60 28l-20-4-16-20H16l8 20H8L4 16H0l4 16-4 16h4l4-8h16l-8 20h8l16-20 20-4c4-1 4-7 0-8z"/>
+        </svg>`;
+
+        const container = document.getElementById('bg-planes');
+        const count = 12;
+
+        for (let i = 0; i < count; i++) {
+            const plane = document.createElement('div');
+            plane.className = 'bg-plane';
+
+            // Random properties
+            const size    = 18 + Math.random() * 28;       // 18–46px
+            const top     = 5  + Math.random() * 88;       // 5–93% from top
+            const delay   = Math.random() * 18;             // stagger start
+            const dur     = 14 + Math.random() * 16;       // 14–30s to cross screen
+            const opacity = 0.06 + Math.random() * 0.10;   // subtle
+
+            plane.style.cssText = `
+                width: ${size}px;
+                top: ${top}%;
+                animation-delay: -${delay}s;
+                animation-duration: ${dur}s;
+                opacity: ${opacity};
+            `;
+            plane.innerHTML = planesSVG;
+            container.appendChild(plane);
+        }
     </script>
 </body>
 </html>
