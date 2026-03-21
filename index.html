@@ -82,42 +82,42 @@
             <h2 class="section-title">Flight Plan</h2>
             <div class="steps">
                 <article class="step">
-                    <div class="step-media"><img src="images/design.jpeg" alt="Design an aircraft" loading="lazy"></div>
+                    <div class="step-media"><img src="images/design.jpeg" alt="Design an aircraft" ></div>
                     <div class="step-content">
                         <h3>Step 1</h3>
                         <p>Design the RC aircraft! Remember to <strong>Journal Everything with hour counts in your GitHub Repo</strong>, make a file named <strong>Journal.md.</strong></p>
                     </div>
                 </article>
                 <article class="step">
-                    <div class="step-media"><img src="images/submit.jpeg" alt="Submit the design" loading="lazy"></div>
+                    <div class="step-media"><img src="images/submit.jpeg" alt="Submit the design"></div>
                     <div class="step-content">
                         <h3>Step 2</h3>
                         <p>Submit the design through the form linked above and select <strong>Design Review.</strong></p>
                     </div>
                 </article>
                 <article class="step">
-                    <div class="step-media"><img src="images/buy.jpeg" alt="Order parts" loading="lazy"></div>
+                    <div class="step-media"><img src="images/buy.jpeg" alt="Order parts"></div>
                     <div class="step-content">
                         <h3>Step 3</h3>
                         <p>Order parts for the aircraft (we will reimburse you upto [To be determined] per hour you spend designing).</p>
                     </div>
                 </article>
                 <article class="step">
-                    <div class="step-media"><img src="images/build.jpeg" alt="Build the aircraft" loading="lazy"></div>
+                    <div class="step-media"><img src="images/build.jpeg" alt="Build the aircraft"></div>
                     <div class="step-content">
                         <h3>Step 4</h3>
                         <p>Build the aircraft. (remember to track your time through lapse, it will be used to give out flight wings).</p>
                     </div>
                 </article>
                 <article class="step">
-                    <div class="step-media"><img src="images/complete.jpeg" alt="Ship the aircraft" loading="lazy"></div>
+                    <div class="step-media"><img src="images/complete.jpeg" alt="Ship the aircraft"></div>
                     <div class="step-content">
                         <h3>Step 5</h3>
                         <p>Ship the RC aircraft (you get flight wings for building it!) (select <strong>Build Review</strong> in the form).</p>
                     </div>
                 </article>
                 <article class="step">
-                    <div class="step-media"><img src="images/rewards.jpg" alt="Claim rewards" loading="lazy"></div>
+                    <div class="step-media"><img src="images/rewards.jpg" alt="Claim rewards"></div>
                     <div class="step-content">
                         <h3>Step 6</h3>
                         <p>Claim your rewards by filling out the rewards form!</p>
@@ -202,12 +202,11 @@
             const plane = document.createElement('div');
             plane.className = 'bg-plane';
 
-            // Random properties
-            const size    = 18 + Math.random() * 28;       // 18–46px
-            const top     = 5  + Math.random() * 88;       // 5–93% from top
-            const delay   = Math.random() * 18;             // stagger start
-            const dur     = 14 + Math.random() * 16;       // 14–30s to cross screen
-            const opacity = 0.06 + Math.random() * 0.10;   // subtle
+            const size    = 18 + Math.random() * 28;      
+            const top     = 5  + Math.random() * 88;       
+            const delay   = Math.random() * 18;             
+            const dur     = 14 + Math.random() * 16;       
+            const opacity = 0.06 + Math.random() * 0.10;  
 
             plane.style.cssText = `
                 width: ${size}px;
