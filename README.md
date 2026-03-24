@@ -4,7 +4,7 @@ This is a Hack Club YSWS program website I designed and made to apply for the 20
 
 # What exactly is throttleup?
 
-Throttle Up is a ysws program by hackclub where you ship a RC plane that you designed and made by yourself in exchange for amazing prizes from us!
+Throttle Up is a ysws program by Hack Club where you ship a RC plane that you designed and made by yourself in exchange for amazing prizes from us!
 
 # When does this start?
 
